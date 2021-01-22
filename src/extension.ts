@@ -15,15 +15,18 @@ export function activate(context: vscode.ExtensionContext) {
 	let disposable = vscode.commands.registerCommand('walTheme.update', generateColorThemes);
 	context.subscriptions.push(disposable);
 
+  let config = vscode.workspace.getConfiguration();
+  let updateInterval: number = config.get('walTheme.autoUpdateInterval') || 10000;
+
 	// Start the auto update if enabled
-	if(vscode.workspace.getConfiguration().get('walTheme.autoUpdate')) {
+	if(config.get('walTheme.autoUpdate')) {
 		/*
 		 * Update theme at startup
 		 * Needed for when wal palette updates while vscode isn't running.
 		 * The timeout is required to overcome a limitation of vscode which
 		 * breaks the theme autoupdate if updated too early at startup.
 		 */
-		setTimeout(generateColorThemes, 10000);
+		setTimeout(generateColorThemes, updateInterval);
 
 		autoUpdateWatcher = autoUpdate();
 	}

@@ -46,7 +46,12 @@
 					"type": "boolean",
 					"default": true,
 					"description": "Update automatically the theme when the pywal color palette changes"
-				}
+				},
+                "walTheme.autoUpdateInterval": {
+                    "type": "number",
+                    "default": 10000,
+                    "description": "Sets the update interval for automatic color scheme updates"
+                }
 			}
 		},
 		"themes": [

@@ -28,9 +28,10 @@ This extension contributes the following command:
 
 ## Extension Settings
 
-This extension contributes the following setting:
+This extension contributes the following settings:
 
 - `walTheme.autoUpdate`: enable/disable the auto update of the theme provided by this extension
+- `walTheme.autoUpdateInterval` (default 10000ms): set the interval between automatic theme updates (reduces resource usage when you aren't updating frequently).
 
 ## Release Notes
 
